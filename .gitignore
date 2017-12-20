@@ -29,6 +29,9 @@
 #nodejs库
 node_modules/
 
+#全局配置文件
+web/common/conf/config.php
+
 #缓存
 runtime/
 
