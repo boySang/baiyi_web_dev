@@ -47,10 +47,10 @@
             <form method="post" id="login-box">
                 <ul>
                     <li>
-                        <input name="name" type="text" class="loginuser" placeholder="账户名" required="" />
+                        <input name="name" type="text" autocomplete="off" class="loginuser" placeholder="账户名" required="" />
                     </li>
                     <li>
-                        <input name="paswd" type="password" class="loginpwd" placeholder="密码" required="" />
+                        <input name="paswd" type="password" autocomplete="off" class="loginpwd" placeholder="密码" required="" />
                     </li>
                     <li>
                         <input type="submit" class="loginbtn submit" value="登录"/>
@@ -76,7 +76,10 @@ $('#login-box').validate({
             success:function(data){
                 console.log(data);
                 if(data.state == 200){
-                    window.location.href=data.url;
+                    $.alert(data.msg);
+                    setTimeout(function(){
+                        window.location.href=data.url;
+                    },1500);
                 }else{
                     $.alert(data.msg);
                 }

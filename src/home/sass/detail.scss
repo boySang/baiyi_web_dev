@@ -70,6 +70,7 @@
 .product-baseinfo .baseinfo .tips{
 	margin-top: 15px;
 	margin-bottom: 20px;
+	height:40px;
 }
 
 .product-baseinfo .baseinfo .types .list{
@@ -98,7 +99,7 @@
 }
 
 .product-baseinfo .baseinfo .price{
-	margin-top: 70px;
+	margin-top: 50px;
 }
 
 .product-baseinfo .baseinfo .price span{
@@ -112,31 +113,55 @@
 	line-height: 37px;
 }
 
+.product-baseinfo .baseinfo .other .num-box{
+	margin-top: 4px;
+	margin-left:20px;
+}
+
 .product-baseinfo .baseinfo .other .good_nums,.product-baseinfo .baseinfo .other .btns{
 	display: inline-block;
 }
 
 .product-baseinfo .baseinfo .other .reduce{
-	margin-left: 20px;
-	border: 1px solid #ddd;
-    padding: 0px 15px;
     cursor: pointer;
+    height: 30px;
+    width: 30px;
+    line-height: 30px;
+    text-align: center;
+}
+
+.product-baseinfo .baseinfo .other .reduce .iconfont,.product-baseinfo .baseinfo .other .add .iconfont{
+	display: block;
+    height: 28px;
+    width: 28px;
+    line-height: 28px;
+    font-size: 12px;
+    font-weight: 700;
+    color: #3C3C3C;
+    border: 1px solid #ccc;
+    background-color: #ededed;
 }
 
 .product-baseinfo .baseinfo .other .add{
-	border: 1px solid #ddd;
-    padding: 0px 15px;
     cursor: pointer;
+    height: 30px;
+    width: 30px;
+    line-height: 30px;
+    text-align: center;
+}
+
+.product-baseinfo .baseinfo .other .good_nums_input{
+	line-height:28px;
 }
 
 .good_nums_input input{
-	border-top: 1px solid #ddd;
-    border-bottom: 1px solid #ddd;
+	border-top: 1px solid #ccc;
+    border-bottom: 1px solid #ccc;
     border-left: none;
     border-right: none;
-    line-height: 35px;
-    padding-left: 13px;
-    width: 30px;
+    line-height: 26px;
+    text-align: center;
+    width: 40px;
     cursor: default;
 }
 

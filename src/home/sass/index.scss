@@ -43,50 +43,18 @@ $bgcolor_3baaf2:#3baaf2;
 	font-size: 22px;
 }
 
-.product_quick{
-	background: url('../img/product_bg.jpg') 100px center no-repeat;
-	padding:80px 0 60px 300px;
+.middle-quick .boxs p .underline{
+	position:relative;
 }
 
-.quick_text{
-	width: 70%;
-}
-
-.quick_text h3{
-	font-weight: 400;
-	font-size: 22px;
-	margin-bottom: 0;
-	margin-top: 0;
-}
-
-.quick_text h3 .iconfont{
-	margin-left: 4px;
-	color: #c7000b;
-	font-size: 20px;
-}
-
-.quick_text p{
-	font-size: 18px;
-	color: #323232;
-}
-
-.quick_text .quick_link{
-	font-size: 13px;
-	display: inline-block;
-	padding: 1px 4px;
-	border: 1px solid #3baaf2;
-	color: #323232;
-	text-decoration: none;
-	margin-top: 10px;
-}
-
-.quick_text .quick_link:hover{
-	background: #3baaf2;
-	color: #fff;
-}
-
-.quick_text li.first{
-	margin-bottom: 26px;
+.middle-quick .boxs p .underline::after{
+	position:absolute;
+	content:'';
+	border-bottom:2px solid #5bbcae;
+	height:1px;
+	left:25%;
+	right:25%;
+	bottom: -8px;
 }
 
 .goodness{
@@ -154,7 +122,7 @@ $bgcolor_3baaf2:#3baaf2;
 
 .big-title h4::after{
 	content: "";
-    border-bottom: 3px solid #fe7b4e;
+    border-bottom: 2px solid #5bbcae;
     position: absolute;
     bottom: -10px;
     right: 40%;
@@ -180,11 +148,15 @@ $bgcolor_3baaf2:#3baaf2;
 .product_list .list-inner{
 	float: left;
 	background: #fff;
-    width: 32%;
-    margin: 0 0.6% 0.6%;
+    width: 49%;
+    margin:0 1% 0 0;
 }
 
-.product_list .list-inner .img-out-box,.product_list .list-inner.sm .info-product{
+.product_list .list-inner.mid{
+	width:24%;
+}
+
+.product_list .list-inner.sm .info-product{
     padding: 3px;
 }
 
@@ -195,9 +167,10 @@ $bgcolor_3baaf2:#3baaf2;
 }
 
 .product_list .list-inner.sm{
-	width: 15.4%;
-    margin: 0 0.6%;
+	width: 15.5%;
+    margin-right: 1%;
     padding-bottom: 20px;
+    margin-top: 1%;
 }
 
 .china.trademark_online .product_list .sm.list-inner{
@@ -218,9 +191,153 @@ $bgcolor_3baaf2:#3baaf2;
 }
 
 .china.trademark_online .product_list .sm.list-inner .pic{
-	height: 130px;
-	line-height: 130px;
+	height: 150px;
+	line-height: 150px;
 	position: relative;
+}
+
+.trademark_online{
+
+	.search-box{
+		width: 900px;
+		margin: 90px auto 80px;
+
+		.search-inner{
+			width:100%;
+			position:relative;
+
+			.search-input{
+				width: 543px;
+				padding-left:25px;
+				height: 48px;
+				border-top:1px solid #9ca8b3;
+				border-left:1px solid #9ca8b3;
+				border-bottom:1px solid #9ca8b3;
+				border-right:none;
+				background:#dee9ed;
+				font-size:14px;
+				transition: .4s;
+			}
+
+			.search-input:focus{
+				background:#fff;
+			}
+
+			.search-select{
+				height: 50px;
+				line-height: 50px;
+			    border-top: 1px solid #9ca8b3;
+			    border-bottom: 1px solid #9ca8b3;
+			    border-left: none;
+			    border-right: none;
+			    background: #dee9ee;
+			    font-size: 14px;
+			    color: #565656;
+			    padding: 0 100px 0 40px;
+
+				.list{
+					display: none;
+				}
+			}
+
+			.search-submit{
+				background:#ff7648;
+				color: #fff;
+				font-size:15px;
+				text-align: center;
+				display: block;
+    			line-height: 52px;
+			}
+
+			.iconfont{
+				color: #8c8c8c;
+			    position: absolute;
+			    top: 14px;
+			    left: 720px;
+			}
+		}
+
+		.search-inner::before{
+			content: ' ';
+		    position: absolute;
+		    left: 570px;
+		    border-right: 1px solid #9ca8b3;
+		    top: 10px;
+		    bottom: 10px;
+		}
+	}
+}
+
+.home-ads1{
+
+	img{
+		max-width: 100%;
+	}
+}
+
+.country_buss_list{
+
+	.list-inner{
+		height: 220px;
+	}
+}
+
+.patent_online{
+
+	.parent-list{
+		margin-top: 90px;
+
+		.list-inner{
+			height: 220px;
+
+			.tit {
+			    font-size: 18px;
+			    font-weight: 400;
+			    margin-bottom: 5px;
+			    margin-top: 85px;
+			}
+
+			.price {
+			    font-size: 16px;
+			}
+		}
+	}
+}
+
+.copyright_online{
+
+	.parent-list{
+
+		.list-inner{
+			background:#fff;
+			border:1px solid $bgcolor_3baaf2;
+			float: left;
+		    width: 15.5%;
+		    position: relative;
+		    margin: 0 1% 0 0;
+		    height: 217px;
+
+		    .tit {
+			    font-size: 18px;
+			    font-weight: 400;
+			    margin-bottom: 5px;
+			    margin-top: 85px;
+			}
+
+			.price {
+			    font-size: 16px;
+			}
+
+			img{
+				display: block;
+				max-width: 100%;
+			}
+		}
+
+		.big.list-inner{
+			border:none;
+		}
+	}
 }
 
 .sm.list-inner .info{
@@ -240,7 +357,7 @@ $bgcolor_3baaf2:#3baaf2;
     border: 1px solid #ff7648;
     width: 50%;
     font-size: 16px;
-    margin-top: 23px;
+    margin-top: 30px;
     padding: 2px;
     transition: .2s;
 }
@@ -252,8 +369,12 @@ $bgcolor_3baaf2:#3baaf2;
 
 .sm.list-inner .info .desc-short{
 	color: #fff;
-	height: 130px;
+	height: 150px;
 	background: #3baaf2;
+}
+
+.china.trademark_online .product_list .sm.list-inner:hover{
+	border:1px solid #3baaf2;
 }
 
 .china.trademark_online .product_list .sm.list-inner:hover .info{
@@ -275,13 +396,20 @@ $bgcolor_3baaf2:#3baaf2;
 	font-size: 16px;
 }
 
-.china.trademark_online .more,.patent_online .more{
+.china.trademark_online .more,.patent_online .more,.copyright_online .more{
     padding-top: 50px;
 }
 
 .china.trademark_online .more .iconfont,.patent_online .more .iconfont{
 	color: #fff;
     font-size: 50px;
+    font-weight: 700;
+    transition: .2s;
+}
+
+.copyright_online .more .iconfont{
+	color:#c6ccd0;
+	font-size: 50px;
     font-weight: 700;
     transition: .2s;
 }
@@ -327,8 +455,12 @@ $bgcolor_3baaf2:#3baaf2;
     width: 15.4%;
     background: #dee9ed;
     position: relative;
-    height: 220px;
     margin: 0 0.6%;
+}
+
+.list-inner.sm{
+    height: 220px;
+    border:1px solid #5bbcae;
 }
 
 .list-inner .iconfont{
@@ -345,14 +477,14 @@ $bgcolor_3baaf2:#3baaf2;
 }
 
 .country_buss_list .list-inner .tit{
-	font-size: 20px;
-    font-weight: 500;
+	font-size: 18px;
+    font-weight: 400;
     margin-bottom: 5px;
     margin-top: 85px;
 }
 
 .country_buss_list .list-inner .price{
-	font-size: 20px;
+	font-size: 16px;
 }
 
 .country_buss_list{
@@ -371,34 +503,12 @@ $bgcolor_3baaf2:#3baaf2;
     transition: .2s;
 }
 
-.patent_online .patent-system{
-	height: 110px;
-	width:100%;
-	line-height: 110px;
-	margin-bottom: 15px;
-	margin-top: 60px;
-}
-
-.patent_online .patent-system h6{
-	font-size: 24px;
-	font-weight: 400;
-	margin-top: 0;
-    margin-bottom: 0;
-    background: #fff;
-    margin-left: 7px;
-    margin-right: 12px;
-}
-
 .parent-list .list-inner{
 	background: #fff;
 }
 
 .parent-list .list-inner.big{
 	width: 49%;
-}
-
-.copyright_online .parent-list .list-inner{
-	background: #dee9ed;
 }
 
 .shop-cart{
@@ -518,6 +628,26 @@ $bgcolor_3baaf2:#3baaf2;
 // 支付确认页面
 
 .pay-page{
+
+	.orderConfirm{
+		height: 30px;
+	    line-height: 30px;
+	    background: #ddd;
+	    padding-left: 15px;
+	    margin-top: 20px;
+	}
+
+	.confirmBtn{
+
+		background:$bgcolor_dee9ed;
+		margin-bottom: 20px;
+
+	    .tit{
+	    	background: #d24141;
+		    color: #fff;
+		    padding: 8px 24px;
+	    }
+	}
 	
 	.pay-header{
 		background:$bgcolor_dee9ed;
@@ -527,6 +657,7 @@ $bgcolor_3baaf2:#3baaf2;
 
 		span{
 			font-size:12px;
+		    margin-right: 15px;
 		}
 	}
 
@@ -562,8 +693,8 @@ $bgcolor_3baaf2:#3baaf2;
 					margin:0;
 
 					.info-inner{
-						border:2px solid #b1b1b1;
-						margin-top:-2px;
+						border: 1px solid #b1b1b1;
+    					margin-top: 10px;
 
 						.img{
 							width: 101px;
@@ -681,6 +812,14 @@ $bgcolor_3baaf2:#3baaf2;
 				}
 			}
 
+			.payMoney{
+				margin-bottom: 20px;
+
+				b{
+					font-size:20px;
+				}
+			}
+
 			.topay.alipay{
 
 				#pay-botton{
@@ -706,10 +845,41 @@ $bgcolor_3baaf2:#3baaf2;
 	.main-inner{
 
 		.menu{
-			width: 100px;
+			width: 98px;
+
+			.face{
+				background:$bgcolor_dee9ed;
+				border:1px solid $bgcolor_dee9ed;
+				width: 100%;
+				padding: 15px 0;
+
+				.img{
+
+					img{
+						width: 50%;
+					    border-radius: 50%;
+					    display: inline-block;
+					    border: 2px solid #fff;
+					}
+				}
+
+				.name{
+					margin-top: 4px;
+
+					a{
+						font-size: 12px;
+
+					}
+
+					a:hover span{
+						text-decoration: underline;
+					}
+				}
+			}
 
 			.order-list{
 				border:1px solid $bgcolor_dee9ed;
+				margin-top: 20px;
 				margin-bottom: 20px;
 				width: 100%;
 
@@ -849,6 +1019,7 @@ $bgcolor_3baaf2:#3baaf2;
 						padding-left:15px;
 						border-top:1px solid $bgcolor_dee9ed;
 						margin-top: -1px;
+						position:relative;
 
 						.list-inners{
 							width: 300px;
@@ -867,10 +1038,28 @@ $bgcolor_3baaf2:#3baaf2;
 							}
 						}
 
+						.list-inners::before{
+							content: "";
+						    border-left: 1px solid $bgcolor_dee9ed;
+						    position: absolute;
+						    left: 565px;
+						    top: 5px;
+						    bottom:5px;
+						}
+
+						.list-inners::after{
+							content: "";
+						    border-right: 1px solid $bgcolor_dee9ed;
+						    position: absolute;
+						    left: 815px;
+						    top: 5px;
+						    bottom:5px;
+						}
+
 						.mid{
 							width: 250px;
 							position:relative;
-							padding-top:32px;
+							padding-top:42px;
 							position:relative;
 
 							.status{
@@ -886,32 +1075,15 @@ $bgcolor_3baaf2:#3baaf2;
 							}
 						}
 
-						.mid::before{
-							content: "";
-						    border-left: 1px solid $bgcolor_dee9ed;
-						    position: absolute;
-						    left: 0;
-						    top: 5px;
-						    height: 72px;
-						}
-
-						.mid::after{
-							content: "";
-						    border-right: 1px solid $bgcolor_dee9ed;
-						    position: absolute;
-						    right: -1px;
-						    top: 5px;
-						    height: 72px;
-						}
-
 						.last{
 							width: 253px;
-							padding-top: 6px;
+							padding-top: 22px;
 
 							a{
 								display: block;
 								font-size:13px;
 								line-height:1.7;
+								margin-bottom: 5px;
 							}
 
 							.to-pay{
@@ -921,7 +1093,7 @@ $bgcolor_3baaf2:#3baaf2;
 							}
 
 							.viewarticle{
-								margin-top: 26px;
+								margin-top: 18px;
 								text-decoration:underline;
 							}
 						}
@@ -933,6 +1105,15 @@ $bgcolor_3baaf2:#3baaf2;
 							    color: #fff;
 							}
 						}
+					}
+
+					.order-list-main::before{
+						content: "";
+					    border-right: 1px solid $bgcolor_dee9ed;
+					    position: absolute;
+					    left: 314px;
+					    top: 5px;
+					    bottom:5px;
 					}
 				}
 			}
@@ -1092,6 +1273,47 @@ $bgcolor_3baaf2:#3baaf2;
 	}
 }
 
+.member-index{
+
+	.pub-header{
+		height: 64px;
+		overflow: hidden;
+
+		.logo-header{
+
+			.quick-link{
+				line-height: 94px;
+
+				a{
+					color:#fff;
+					margin: 0 10px;
+				}
+			}
+		}
+	}
+
+	.member-index{
+
+		.search{
+
+			.dis_inline{
+
+				.input-search{
+
+					.input-text{
+						border-top: 1px solid #c3c3c3;
+					    border-bottom: 1px solid #c3c3c3;
+					    border-left: 1px solid #c3c3c3;
+					}
+				}
+
+				.submit{
+					background:red;
+				}
+			}
+		}
+	}
+}
 
 
 
