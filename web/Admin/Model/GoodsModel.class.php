@@ -96,16 +96,20 @@ class GoodsModel extends Model{
 		$data['goods_content'] = I('post.goods_content','','htmlspecialchars');
 		$data['goods_thumb'] = I('post.goods_thumb','','htmlspecialchars');
 		$data['goods_default_price'] = I('post.goods_default_price','','htmlspecialchars')*100;
-		$attr = I('post.attr');
+		//$attr = I('post.attr');
 		$attrval = I('post.attrval');
 		$attr_price = I('post.attr_price');
 		$result = $this->add($data);
 		if($result){
-			if(count($attr) > 0){
-				foreach($attr as $k=>$v){
+			if(count($attrval) > 0){
+				foreach($attrval as $k=>$v){
 					$_attr[$k]['goods_id'] = $result;
-					$_attr[$k]['attr'] = $v;
-					$_attr[$k]['attrval'] = $attrval[$k];
+					// $_attr[$k]['attr'] = $v;
+					$_temp_val = array();
+					foreach($v as $k1=>$v1){
+						$_temp_val[$k1] = $v1;
+					}
+					$_attr[$k]['attrval'] = implode(',', $_temp_val);
 					$_attr[$k]['attr_price'] = $attr_price[$k]*100;
 				}
 				$goodsAttrModel = D('GoodsAttr');
