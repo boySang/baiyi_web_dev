@@ -1,0 +1,66 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>无标题文档</title>
+    <include file='Public/meta' />
+</head>
+
+<body>
+    <div class="place">
+        <span>位置：</span>
+        <ul class="placeul">
+            <li><a href="#">首页</a></li>
+            <li><a href="#">图片列表</a></li>
+        </ul>
+    </div>
+    <div class="rightinfo">
+        <div class="tools">
+            <ul class="toolbar">
+                <li class="click"><a href="__CONTROLLER__/add"><span><img src="__PUBLIC__/admin/img/t01.png" /></span>添加产品</a></li>
+                <!-- <li><span><img src="__PUBLIC__/admin/img/t04.png" /></span>统计</li> -->
+            </ul>
+        </div>
+        <table class="imgtable">
+            <thead>
+                <tr>
+                    <th width="100px;">缩略图</th>
+                    <th>名称</th>
+                    <th>栏目</th>
+                    <th>属性及价格</th>
+                    <th>浏览次数</th>
+                    <th>是否推荐</th>
+                    <th>操作</th>
+                </tr>
+            </thead>
+            <tbody>
+                <foreach name="data.data" item="product">
+                <tr>
+                    <td class="imgtd"><img src="__PUBLIC__/admin/img/img11.png" /></td>
+                    <td><a href="{$product.review_url}">{$product.goods_name}</a>
+                        <p>发布时间：{$product.addtime}</p>
+                    </td>
+                    <td>{$product.cate_title}</td>
+                    <td>{$product.attrprice}</td>
+                    <td>{$product.readnum}</td>
+                    <td>{$product.hot}</td>
+                    <td>
+                        <a href="__CONTROLLER__/update/id/{$product.goods_id}">编辑</a>
+                        <a href="__CONTROLLER__/del/id/{$product.goods_id}">删除</a>
+                    </td>
+                </tr>
+                </foreach>
+            </tbody>
+        </table>
+        <div class="pagin">
+            <div class="message">共<i class="blue">{$data.total}</i>条信息</div>
+            <ul class="paginList">{$data.page}</ul>
+        </div>
+    </div>
+    <script type="text/javascript">
+        $('.imgtable tbody tr:odd').addClass('odd');
+    </script>
+</body>
+
+</html>

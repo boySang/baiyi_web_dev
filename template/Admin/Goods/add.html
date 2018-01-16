@@ -1,0 +1,161 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>无标题文档</title>
+    <include file='Public/meta' />
+</head>
+
+<body class="productadd">
+    <div class="place">
+        <span>位置：</span>
+        <ul class="placeul">
+            <li><a href="#">首页</a></li>
+            <li><a href="#">模块</a></li>
+            <li><a href="#">添加产品</a></li>
+        </ul>
+    </div>
+    <div class="formbody">
+        <form id="add-form">
+            <input type="hidden" name="prev_url" value="<?php echo PREV_URL; ?>">
+            <div id="tab1" class="tabson">
+                <ul class="forminfo">
+                    <li>
+                        <label>缩略图</label>
+                        <input type="hidden" name="goods_thumb">
+                        <input type="hidden" name="goods_sm_img">
+                        <input type="file" name="goods_img">
+                    </li>
+                    <li>
+                        <label>商品名称</label>
+                        <input name="goods_name" type="text" class="dfinput" placeholder="商品名称" style="width:600px;" />
+                    </li>
+                    <li>
+                        <label>所属栏目</label>
+                        <select class="input-select" name="cate_id" style="width:120px;">
+                            <foreach name="cate" item="cate">
+                            <option value="{$cate.id}">{$cate.title}</option>
+                            </foreach>
+                        </select>
+                    </li>
+                    <li>
+                        <label>商品提示</label>
+                        <textarea name="goods_tips" class="input-textarea" style="width:600px;height:50px;"></textarea>
+                    </li>
+                    <li>
+                        <label>关键词</label>
+                        <input name="keywords" type="text" class="dfinput" placeholder="关键词之间用','隔开" style="width:600px;" />
+                    </li>
+                    <li>
+                        <label>商品简介</label>
+                        <textarea name="goods_info" class="input-textarea" style="width:600px;height:100px;"></textarea>
+                    </li>
+                    <li>
+                        <label>详细内容</label>
+                        <textarea name="goods_content" class="input-textarea" style="width:600px;height:250px;"></textarea>
+                    </li>
+                    <li>
+                        <label>默认价格</label>
+                        <input name="goods_default_price" type="text" class="dfinput" placeholder="默认价格" style="width:600px;" />
+                    </li>
+                    <li>
+                        <label>属性及价格</label>
+                        <a href="javascript:;" id="pro-attr-add" class="btn-s-private-big"> 添加属性 </a>
+                    </li>
+                    <li id="proAttrShowOrHide" style="display: none;">
+                        <label></label>
+                        <div class="proListOutside" id="proListOutside">
+                            <div id="attrList">
+                                <select class="input-select proAttrName" name="attr[]" style="width:100px">
+                                    <foreach name="optAttrData.attr" item="attr">
+                                        <option value="{$attr.id}">{$attr.name}</option>
+                                    </foreach>
+                                </select>
+                                <select class="input-select proAttrNameVal" name="attrval[]" style="width:100px">
+                                    <foreach name="optAttrData.firstval" item="val">
+                                        <option value="{$val.id}">{$val.name}</option>
+                                    </foreach>
+                                </select>
+                                <input name="attr_price[]" type="text" class="dfinput" value="'+defaultPrice+'" placeholder="该属性下的价格" style="width:108px;" /> 元
+                                <div class="del"><i class="iconfont icon-delete"></i></div>
+                            </div>
+                        </div>
+                    </li>
+                    <li>
+                        <label>排序</label>
+                        <input name="sort_order" type="text" class="dfinput" value="255" style="width:600px;" />
+                    </li>
+                    <li>
+                        <label>&nbsp;</label>
+                        <input name="" type="button" id="submit" class="btn" value="确认添加" />
+                    </li>
+                </ul>
+            </div>
+        </form>
+    </div>
+</body>
+<script type="text/javascript">
+
+$(function(){
+    productAddAction.load();
+});
+
+var productAddAction = {
+
+    add : function(){
+        $('body').on('click','#pro-attr-add',function(){
+            $('#proAttrShowOrHide').show();
+            // 获取默认价格
+            var defaultPrice = $('input[name="goods_default_price"]').val()!=''?$('input[name="goods_default_price"]').val():'0.00';
+            var html = '<div id="attrList"><select class="input-select proAttrName" name="attr[]" style="width:100px"><foreach name="optAttrData.attr" item="attr"><option value="{$attr.id}">{$attr.name}</option></foreach></select><select class="input-select proAttrNameVal" name="attrval[]" style="width:100px"><foreach name="optAttrData.firstval" item="val"><option value="{$val.id}">{$val.name}</option></foreach></select><input name="attr_price[]" type="text" class="dfinput" value="'+defaultPrice+'" placeholder="该属性下的价格" style="width:108px;" /> 元<div class="del"><i class="iconfont icon-delete"></i></div></div>';
+            $('#proListOutside').append(html);
+        });
+    },
+
+    del : function(){
+        $('body').on('click','#attrList .del',function(){
+            $(this).parent().remove();
+            if($('.proListOutside #attrList').length == 0){
+                $('#proAttrShowOrHide').hide();
+            }
+        });
+    },
+
+    chgAttrVal : function(){
+        $('body').on('change','#attrList .proAttrName',function(){
+            var that = $(this);
+            var attr_id = that.val();
+            $.get('__MODULE__/optAttrVal/ajaxGetAll/attr_id/'+attr_id,function(data){
+                var html = '';
+                if(data.state == 200){
+                    $(data.data).each(function(k,v){
+                        html += '<option value="'+v.id+'">'+v.name+'</option>';
+                    });
+                }else{
+                    $.alert(data.msg);
+                    html = '';
+                }
+                that.parent().find('.proAttrNameVal').html(html);
+            });
+        });
+    },
+
+    submit : function(){
+        $('body').on('click','#submit',function(){
+            $.post('__CONTROLLER__/ajaxAdd',$('#add-form').serialize(),function(data){
+                console.log(data);
+            });
+        });
+    },
+
+    load : function(){
+        this.add();
+        this.del();
+        this.chgAttrVal();
+        this.submit();
+    },
+}
+
+</script>
+</html>
